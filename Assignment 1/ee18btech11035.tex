@@ -20,11 +20,11 @@
 
 \usepackage{enumitem}
 \usepackage{mathtools}
-%\usepackage{steinmetz}
+\usepackage{steinmetz}
 \usepackage{tikz}
 \usepackage{circuitikz}
 \usepackage{verbatim}
-%\usepackage{tfrupee}
+\usepackage{tfrupee}
 \usepackage[breaklinks=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{tkz-euclide}
@@ -198,30 +198,56 @@ codes/7_1Sound_With_ReducedNoise.wav
 \section{Verification}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\columnwidth]{./figs/ee18btech11035_1.eps}
+\includegraphics[width=0.7\columnwidth]{./figs/ee18btech11035_1.eps}
 \caption{Time domain response from signal.filtfilt command}
 \label{fig:Figure1}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\columnwidth]{./figs/ee18btech11035_2.eps}
+\includegraphics[width=0.7\columnwidth]{./figs/ee18btech11035_2.eps}
 \caption{Time domain response from defined filter}
 \label{fig:Figure2}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\columnwidth]{./figs/ee18btech11035_3.eps}
+\includegraphics[width=0.7\columnwidth]{./figs/ee18btech11035_3.eps}
 \caption{Frequency domain response from signal.filtfilt command}
 \label{fig:Figure3}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\columnwidth]{./figs/ee18btech11035_4.eps}
+\includegraphics[width=0.7\columnwidth]{./figs/ee18btech11035_4.eps}
 \caption{Frequency domain response from defined filter}
 \label{fig:Figure4}
+\end{figure}
+
+
+\section{Computing using fft algorithm in C}
+First store the x[n] values in a.dat file and load in c program
+Below is the following python code for storing the data
+\begin{lstlisting}
+codes/ee18btech11035-fft-data.py
+\end{lstlisting}
+Run the following code in C to get y[n]
+\begin{lstlisting}
+codes/ee18btech11035-fft.c
+\end{lstlisting}
+Plotting the time domain output signal obtained from fft in C and constructing audio file
+\begin{lstlisting}
+codes/ee18btech11035-fft-output.py
+\end{lstlisting}
+Below is the audio file for the above output y(n)
+\begin{lstlisting}
+codes/7.1_Sound_With_ReducedNoise_using_c.wav
+\end{lstlisting}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\columnwidth]{./figs/ee18btech11035_2.eps}
+\caption{Time domain response using c}
+\label{fig:Figure2}
 \end{figure}
 
 \end{document}
