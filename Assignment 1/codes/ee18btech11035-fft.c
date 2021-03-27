@@ -3,7 +3,6 @@
 # include <stdlib.h>
 # include <complex.h>
 # include <math.h>
-//typedef double complex cp;
 
 double pi =  3.141592653589793238;
 
