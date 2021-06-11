@@ -1,0 +1,547 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%\usepackage{chngcntr}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{gensymb}
+\singlespacing
+% \usepackage[cmex10]{amsmath}
+\usepackage{caption}
+\usepackage{epstopdf}
+\usepackage[cmex10]{amsmath}
+\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+%\usepackage{iithtlc}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{bm}
+\usepackage{mathptmx}
+\usepackage{amsfonts}
+\usepackage{subfig}
+\usepackage{xtab}
+\usepackage{longtable}
+
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage{chngcntr}
+
+
+
+
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+% \usepackage{cases}
+\usepackage{subfig}
+
+\usepackage{longtable}
+% \usepackage{multirow}
+
+\usepackage{enumitem}
+\usepackage{mathtools}
+% \usepackage{steinmetz}
+\usepackage{tikz}
+%\usepackage{circuitikz}
+\usepackage{verbatim}
+% \usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{graphicx}
+% \usepackage{tkz-euclide}
+
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    %\usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+\usepackage{xcolor}
+%\DeclareMathOperator*{\Res}{Res}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+\newcommand\myText[1]{\text{\scriptsize\tabular[t]{@{}l@{}}#1\endtabular}}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\begin{document}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+%\numberwithin{equation}{subsection}
+
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+
+\renewcommand{\thefigure}{\theproblem}
+
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 2}
+\author{P AASHRITH - EE18BTECH11035}
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+Download all python codes from 
+\begin{lstlisting}
+https://github.com/yashwanthguguloth24/EE3025-DSP-lab/tree/main/Assignment2/codes
+\end{lstlisting}
+%
+and latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/yashwanthguguloth24/EE3025-DSP-lab/tree/main/Assignment2
+\end{lstlisting}
+\section{Introduction}
+We are supposed to design the equivalent FIR and IIR filter realizations for filter number 114.  
+This is a bandpass filter whose specifications are available below.
+\section{Filter Specifications}
+The sampling rate for the filter has been specified as $F_s =  48$ kHz. Let the un-normalized  discrete-time (natural) frequency is F, the corresponding normalized digital filter (angular) frequency is given by $\omega = 2\pi
+\left(\frac{F}{F_s}\right)$.
+
+\subsection{The Digital Filter}
+
+\begin{enumerate}
+\item {\textbf{Tolerances:}}  The passband ($\delta_1$) and stopband ($\delta_2$) tolerances are given to
+be equal, so let $\delta_1 = \delta_2 = \delta = 0.15$.
+
+\item {\textbf{Passband:}}  The passband of filter number $j$, $j$ going from 109 to 135 is from \{3 + 0.6(j-109)\}kHz
+to \{3 + 0.6(j-107)\}kHz.  Since our filter number is 114, Substituting $j = 114$ gives the passband
+range as $6$ kHz - $7.2$ kHz.  Hence, the un-normalized discrete time filter
+passband frequencies are
+\begin{align}
+    F_{p1} &= 7.2 \text{ kHz}\\
+    F_{p2} &= 6 \text{ kHz}
+\end{align}
+and corresponding normalized digital filter passband frequencies are
+\begin{align}
+    \omega_{p1} &= 2\pi\frac{F_{p1}}{F_s} =0.3\pi \\
+    \omega_{p2} &= 2\pi\frac{F_{p2}}{F_s}  = 0.25 \pi
+\end{align}
+Center Frequency is given by,
+\begin{align}
+    \omega_c = \frac{\omega_{p1} + \omega_{p2}}{2} = 0.275\pi
+\end{align}
+
+\item {\textbf{Stopband:}}  The {\em transition band} for bandpass filters is $\Delta F = 0.3$ kHz on either side of the passband.\\
+Hence, the un-normalized {\em stopband} frequencies are 
+\begin{align}
+    F_{s1} &= 7.2 + 0.3 = 7.5\\
+    F_{s2} &= 6.0 - 0.3 = 5.7
+\end{align}
+and their corresponding Normalized frequencies are,
+\begin{align}
+    \omega_{s1} &= 0.3125 \pi\\
+    \omega_{s2} &=  0.2375 \pi
+\end{align}
+\end{enumerate}
+
+\subsection{The Analog filter}
+In the bilinear transform, the analog filter is related to the corresponding digital filter as.,
+\begin{align}
+    s = \frac{2}{T}\sbrak{\frac{z-1}{z+1}} \label{eq:bilinearrelation}
+\end{align}
+Substitute.,
+\begin{align}
+    z &= e^{j\omega}\\
+    s &= j\Omega
+\end{align}
+where,\\ $\Omega$ is analog filter frequency\\
+$\omega$ is digital filter frequency\\
+The equation.\ref{eq:bilinearrelation} becomes,
+\begin{align}
+    \Omega  = \frac{2}{T}\tan\frac{\omega}{2}
+\end{align}
+Using the above relation, we obtain the analog passband and stopband frequencies as
+\begin{align}
+    \Omega_{p1} &= 0.5095\\
+    \Omega_{p2} &= 0.4142\\ \Omega_{s1} &= 0.5345\\ \Omega_{s2} &= 0.3914
+\end{align}
+
+\section{IIR Filter Design}
+\textbf{Filter Type:} We are supposed to design filters whose stopband is monotonic and passband equiripple.  
+Hence, we use the {\em Chebyschev approximation} to design our bandpass IIR filter.
+
+\subsection{The Analog Filter}
+\begin{enumerate}
+
+\item \textbf{Low Pass Analog Filter Specifications:}  If $H_{a, BP}(j\Omega)$ be the desired analog band
+pass filter,  with the specifications provided in Section 2.2, and $H_{a,LP}(j\Omega_L)$ 
+be the equivalent low pass filter, then we map the frequencies as following.,
+\begin{align}
+\Omega_L \xleftarrow{} A(\Omega^2 - \Omega_{0}^{2})
+\end{align}
+Whenever the $\Omega$ on the right (which is the BPF) is equal to either  $\Omega_0$ or $-\Omega_0$ , the $\Omega_{L}$ on the left is zero. 
+Now, suppose we set A=$Q/\Omega_0 \Omega$ which is still non-zero and non-infinite for $\Omega=\Omega_0$).
+\begin{align}
+    \Omega_L = Q\sbrak{\frac{\Omega}{\Omega_0}-\frac{\Omega_0}{\Omega}} \label{eq:lpbp_1}
+\end{align}
+Where,
+\begin{align}
+    Q = \frac{\Omega_0}{\Omega_{p1} -\Omega_{p2}}\\
+    \Omega_0 = \sqrt{\Omega_{p1} \Omega_{p2}}
+\end{align}
+The equation.\ref{eq:lpbp_1} can be rewritten as the following.,
+\begin{equation}
+\label{lpbp_2}
+\Omega_L = \frac{\Omega^2 - \Omega_0^2}{B\Omega}
+\end{equation}
+where., B = $\Omega_{p1} -\Omega_{p2}$.
+The above equation maps bandpass frequencies to low pass frequencies.
+Substituting the values, we get.,
+\begin{align}
+\Omega_0 = \sqrt{\Omega_{p1}\Omega_{p2}} = 0.4594\\
+B = \Omega_{p1} - \Omega_{p2} = 0.0953 
+\end{align}
+The low pass filter has
+the passband edge at $\Omega_{Lp} = 1$ and stopband edges at $\Omega_{Ls_1} = 1.4653$ and $\Omega_{Ls_2} = -1.5511$.  We choose the stopband edge of the analog low pass filter as $\Omega_{Ls} = \mbox{min}(\vert \Omega_{Ls_1}\vert,\vert \Omega_{Ls_2}\vert)$.
+\begin{align}
+    \Omega_{Lp} &= 1\\
+    \Omega_{Ls} &= 1.4653
+\end{align}
+
+\item \textbf{The Low Pass Chebyschev Filter Paramters:}  The magnitude squared of the Chebyschev low pass filter is given by 
+\begin{equation}
+\label{lpfirst}
+\vert H_{a,LP}(j\Omega_L)\vert^2 = \frac{1}{1 + \epsilon^2c_N^2(\Omega_L/\Omega_{Lp})}
+\end{equation}
+where $c_N(x) = \cosh(N \cosh^{-1}x)$ and the integer $N$, which is the order of the filter, and $\epsilon$ are design paramters.  Since $\Omega_{Lp} = 1$, (\ref{lpfirst}) may be rewritten as
+
+\begin{equation}
+\label{lpsecond}
+\vert H_{a,LP}(j\Omega_L)\vert^2 = \frac{1}{1 + \epsilon^2c_N^2(\Omega_L)}
+\end{equation}
+Also, the design paramters have the following constraints
+\begin{eqnarray}
+\label{lpdesign}
+\frac{\sqrt{D_2}}{c_N(\Omega_{Ls})} \leq \epsilon \leq \sqrt{D_1}, \nonumber \\
+N \geq \left\lceil \frac{\cosh^{-1}\sqrt{D_2/D_1}}{\cosh^{-1}\Omega_{Ls}} \right\rceil,
+\end{eqnarray}
+where,
+\begin{align}
+D_1 = \frac{1}{(1 - \delta)^2}-1\\
+D_2 = \frac{1}{\delta^2} - 1
+\end{align}  
+After appropriate substitutions,
+we obtain,
+\begin{align}
+    N &\geq 4\\
+    0.3184 &\leq \epsilon \leq 0.6197
+\end{align}
+\begin{lstlisting}
+iir/paraplot.py
+\end{lstlisting}
+\begin{figure}[hb!]
+    \centering
+    \includegraphics[width=9cm]{./figs/iir/ee18btech11035_fig1.eps}
+    \caption{Analog low pass response for varying epsilon}
+    \label{fig:varying_epsilon}
+\end{figure}
+In Figure.\ref{fig:varying_epsilon}, we plot $\vert H(j\Omega)\vert$ for a range of values of $\epsilon$, for $N = 4$.  We find that for larger values of $\epsilon$, $|H(j\Omega)|$ decreases in the transition band.  We choose $\epsilon = 0.4$  for our IIR filter design.  
+The following code generates the values of all parameters.
+\begin{lstlisting}
+iir/para.py
+\end{lstlisting}
+\item \textbf{The Low Pass Chebyschev Filter:} 
+Thus, we obtain
+\begin{equation}
+\label{lpsqfinal}
+\vert H_{a,LP}(j\Omega_L)\vert^2 = \frac{1}{1 + 0.16c_4^2(\Omega_L)}
+\end{equation}
+where
+\begin{equation}
+c_4(x) = 8x^4 + 8x^2 + 1.	
+\end{equation}
+The poles of the frequency response in (\ref{lpfirst}) lying in the left half plane are in general obtained as 
+$r_1\cos\phi_k + jr_2\sin \phi_k$, where
+\begin{align}
+   \phi_k &= \frac{\pi}{2} + \frac{(2k+1)\pi}{2N}, k = 0, 1, \dots, N-1 \nonumber \\
+r_1 &= \frac{\beta^2 - 1}{2\beta}\\
+r_2 &= \frac{\beta^2 + 1}{2\beta}\\
+\beta &= \left[ \frac{\sqrt{1 + \epsilon^2} + 1}{\epsilon}\right]^{\frac{1}{N}}
+\end{align}
+Thus, for N even, the low-pass stable Chebyschev filter, with a gain $G$ has the form
+\begin{align}
+\label{eq:poleleft}
+H_{LP}(s_L) &= \frac{G_{LP}}{\prod_{k}^{}(s_L^2 - 2r_1 C(\phi_k)s_L + r_1^2C^2(\phi_k) + r_2^2 S^2(\phi_k)}\\
+\text{where,}\\
+C(\phi_k) &= \cos(\phi_k) \\
+S(\phi_k) &= \sin(\phi_k)
+\end{align}
+
+Substituting $N = 4$, $\epsilon = 0.5$ and\\ $H_{a,LP}(j) = \frac{1}{\sqrt{1+\epsilon^2}}$, we obtain 
+\begin{equation}
+\label{lpfinal}
+H_{a,LP}(s_L) = \frac{0.3125}{s_L^4 + 1.12s_L^3 + 1.61s_L^2+0.91s_L + 0.34}
+\end{equation}
+\begin{lstlisting}
+iir/lpanalog.py
+\end{lstlisting}
+\begin{figure}
+    \centering
+    \includegraphics[width=9cm]{./figs/iir/ee18btech11035_fig2.eps}
+    \caption{LP specifications in \ref{lpsqfinal}, \ref{bpfinal}}
+    \label{fig:Analog_cheb}
+\end{figure}
+In Figure \ref{fig:Analog_cheb} we plot $|H(j\Omega)|$ using (\ref{lpsqfinal}) and (\ref{lpfinal}), thereby verifying that our low-pass Chebyschev filter design meets the specifications.
+\item \textbf{The Band Pass Chebyschev Filter:}  The analog bandpass filter is obtained from (\ref{lpfinal}) by substituting
+$s_L = \frac{s^2 + \Omega_0^2}{Bs}$.  Hence
+\begin{equation}
+H_{a,BP}(s) = G_{BP}H_{a,LP}(s_L)\vert_{s_L = \frac{s^2 + \Omega_0^2}{Bs}},
+\end{equation}
+where $G_{BP}$ is the gain of the bandpass filter.  After appropriate substitutions, and evaluating the gain 
+such that $H_{a,BP}(j\Omega_{p1}) = 1$, we obtain
+{\tiny
+\begin{equation}
+\label{bpfinal}
+H_{a,BP}(s) = \frac{2.78\times 10^{-5}s^4}{s^8+0.11s^7+0.8s^6+0.07s^5+0.3s^4+0.01s^3+0.04s^2+0.001s+0.002}
+\end{equation}
+}
+\begin{lstlisting}
+iir/iirfinal.py
+\end{lstlisting}
+\begin{figure}
+    \centering
+    \includegraphics[width=9cm]{./figs/iir/ee18btech11035_analog_bp.eps}
+    \caption{Analog bandpass from eq.\ref{bpfinal}}
+    \label{fig:Analog_BP}
+\end{figure}
+In Figure \ref{fig:Analog_BP}, we plot $\vert H_{a,BP}(j\Omega)\vert$ as a function of $\Omega$ for both positve as
+well as negative frequencies.  We find that the passband and stopband frequencies in the figure
+match well with those obtained analytically through BT.
+\end{enumerate}
+
+\subsection{The Digital Filter}
+From the bilinear transformation, we obtain the digital bandpass filter from the corresponding analog filter as
+\begin{eqnarray}
+\label{analdig}
+H_{d,BP}(z) = GH_{a,BP}(s)\vert_{s = \frac{1-z^{-1}}{1 + z^{-1}}}
+\end{eqnarray}
+where $G$ is the gain of the digital filter.  From (\ref{bpfinal}) and (\ref{analdig}), we obtain
+
+\begin{eqnarray}
+H_{d,BP}(z) = G \frac{N(z)}{D(z)}
+\end{eqnarray}
+where $G = 2.7776 \times 10^{-5}$,
+
+\begin{eqnarray}
+N(z) =  1 - 4 z^{-2} + 6 z^{-4} - 4z^{-6} + z^{-8} 
+\end{eqnarray}
+and
+\begin{align}
+D(z) &= 2.36 -12z^{-1} + 31.88z^{-2}  -53.75z^{-3} +  62.81z^{-4}\nonumber \\
+  &-51.47z^{-5}+   29.23z^{-6}  -10.53z^{-7} +1.98z^{-8}
+\end{align}
+The plot of $|H_{d,BP}(z)|$ with respect to the normalized angular frequency (normalizing factor $\pi$) is available in Figure.\ref{fig:BP_digital}.  Again we
+find that the passband and stopband frequencies meet the specifications well enough.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 9cm]{./figs/iir/ee18btech11035_digital_bp.eps}
+    \caption{The magnitude response of the bandpass digital filter designed to meet the given specifications}
+    \label{fig:BP_digital}
+\end{figure}
+%--------------
+\section{The FIR Filter}
+We design the FIR filter by first obtaining the (non-causal) lowpass equivalent using the Kaiser window
+and then
+converting it to a causal bandpass filter.
+
+\subsection{The Equivalent Lowpass Filter}
+The lowpass filter has a passband frequency $\omega_l$ and transition band $\Delta \omega = 2\pi \frac{\Delta F}{F_s} = 0.0125\pi$.
+The stopband tolerance is $\delta$.
+\begin{enumerate}
+\item  The {\em passband frequency $\omega_l$}  is defined as $\omega_l = \frac{\omega_{p1} - \omega_{p2}}{2}$.  Substituting the values of $\omega_{p1}$ and $\omega_{p2}$ from section 2.1, we obtain $\omega_l = 0.025\pi$.
+
+\item {\em The impulse response $h_{lp}(n)$} of the desired lowpass filter with cutoff frequency $\omega_l$
+is given by
+\begin{eqnarray}
+\label{firlpdef}
+h_l(n) = \frac{\sin(n\omega_l)}{n\pi}w(n),
+\end{eqnarray}
+where $w(n)$ is the Kaiser window obtained from the design specifications.
+\end{enumerate}
+
+\subsection{The Kaiser Window}
+The Kaiser window is defined as
+\begin{eqnarray}
+\label{kaiser}
+w(n) &=& \frac{I_0\left[ \beta N \sqrt{1 - \left(\frac{n}{N}\right)^2} \right]}{I_0(\beta N)},
+\indent -N \leq n \leq N, \indent \beta > 0 \nonumber \\
+&=& 0 \hspace{5cm} \mbox{else,}
+\end{eqnarray}
+where $I_0(x)$ is the modified Bessel function of the first kind of order zero in $x$ and $\beta$
+and $N$ are the window shaping factors.  In the following,
+we find $\beta$ and $N$ using the design parameters in section 2.1.
+
+\begin{enumerate}
+\item  N is chosen according to
+\begin{equation}
+N \geq \frac{A-8}{4.57\Delta \omega},
+\end{equation}
+where $A = -20\log_{10}\delta$.  Substituting the appropriate values from the design specifications, we obtain
+$A = 16.4782$ and $N \geq 48$.
+
+\item  $\beta$ is chosen according to
+\begin{eqnarray}
+\label{kaisercond}
+\beta N = \left\{ \begin{array}{ll} 0.1(A-8.7) & A > 50 \\
+0.6(A-21)^{0.4}+ 0.1(A-21) & 21 \leq A \leq 50 \\
+0 & A < 21\end{array} \right.
+\end{eqnarray}
+In our design, we have $A = 16.4782 < 21$.  Hence, from (\ref{kaisercond}) we obtain $\beta = 0$.  
+
+\item We choose $N = 100$, to ensure the desired low pass filter response.  Substituting in (\ref{kaiser})
+gives us the rectangular window
+\begin{eqnarray}
+\label{rect}
+w(n) &=& 1, \indent -100 \leq n \leq 100 \nonumber \\
+&=& 0 \hspace{6mm} \mbox{otherwise}
+\end{eqnarray}
+\end{enumerate}
+
+From (\ref{firlpdef}) and (\ref{rect}), we obtain the desired lowpass filter impulse response
+\begin{eqnarray}
+\label{firlpfinal}
+h_{lp}(n) &=& \frac{\sin(\frac{n\pi}{40})}{n\pi} \indent -100 \leq n \leq 100 \nonumber \\
+&=& 0, \hspace{2cm} \mbox{otherwise}
+\end{eqnarray}
+The magnitude  response of the filter in (\ref{firlpfinal}) is shown in Figure.\ref{fig:fir_lowpass}.
+\begin{figure}
+    \centering
+    \includegraphics[width = 9cm]{./figs/fir/ee18btech11035_fir_lp.eps}
+    \caption{The magnitude response of the FIR lowpass digital filter designed to meet the given specifications} 
+    \label{fig:fir_lowpass}
+\end{figure}
+
+\subsection{The FIR Bandpass Filter}
+The centre of the passband of the desired bandpass filter was found to be $\omega_c = 0.275\pi$ in Section
+2.1.  The impulse response of the desired bandpass filter is obtained from the impulse response of the
+corresponding lowpass filter as
+\begin{eqnarray}
+h_{bp}(n) = 2h_{lp}(n)cos(n\omega_c)
+\end{eqnarray}
+Thus, from (\ref{firlpfinal}), we obtain
+\begin{eqnarray}
+\label{firbpfinal}
+h_{bp}(n) &=& \frac{2\sin(\frac{n\pi}{40}) \cos(\frac{11n\pi}{40})}{n\pi} \indent -100 \leq n \leq 100 \nonumber \\
+&=& 0, \hspace{4cm} \mbox{else}
+\end{eqnarray}
+%
+The magnitude response of the FIR bandpass filter designed to meet the given specifications is plotted in Figure.\ref{fig:fir_bandpass}.
+The following code generates the plots.
+\begin{lstlisting}
+fir/test_fir.py
+\end{lstlisting}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 9cm]{./figs/fir/ee18btech11035_fir_bp.eps}
+    \caption{The magnitude response of the FIR bandpass digital filter designed to meet the given specifications}
+    \label{fig:fir_bandpass}
+\end{figure}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
